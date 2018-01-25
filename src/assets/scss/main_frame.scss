@@ -1,0 +1,52 @@
+.top-nav{
+  height: 60px;
+  position: relative;
+  padding-left: 200px;
+  z-index: 11;
+  transition: padding .3s;
+  .top-nav-content{
+    width: 100%;
+    height: 100%;
+    background: #fff;
+    -webkit-box-shadow: 0 2px 1px 1px rgba(100, 100, 100, 0.1);
+    box-shadow: 0 2px 1px 1px rgba(100, 100, 100, 0.1);
+    .shrink-icon{
+      width: 60px;
+      height: 60px;
+      display: inline-block;
+      margin-left: 6px;
+      Button{
+        margin-top: 5px;
+        border-color: #fff;
+        box-shadow: none;
+        border: 0;
+      }
+    }
+    .breadcrumb{
+      display: inline-block;
+      padding:8px 15px 0;
+    }
+    .right-column{
+      float: right;
+      display: inline-block;
+      .nav-link{
+        float: left;
+        display: inline-block;
+        height: 60px;
+        line-height: 60px;
+        margin:0 10px;
+      }
+      .user-menu{
+        float: right;
+        display: inline-block;
+        height: 30px;
+        line-height: 30px;
+        margin:10px 15px 0 10px;
+        .avatar{
+          display: inline-block;
+          margin-left: 15px;
+        }
+      }
+    }
+  }
+}
