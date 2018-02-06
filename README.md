@@ -1,6 +1,6 @@
 # vue_news_admin
 
-> A Vue.js project
+test
 
 ## 功能 
 ### 栏目/分类的功能
