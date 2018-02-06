@@ -14,7 +14,7 @@
                         <Input v-model="formItem.catDesc" placeholder="请输入新分类的描述" type="textarea"/>
                     </FormItem>
                     <FormItem>
-                        <Button type="primary">提交</Button>
+                        <Button type="primary" @click="submit">提交</Button>
                     </FormItem>
                 </Form>
             </Col>
@@ -55,7 +55,17 @@
         },
         destroyed() {
         },
-        methods: {},
+        methods: {
+            submit(){
+                this.apidata('http://newsadmin.com/addCat.php',this.formItem,
+                re=>{
+
+                },
+                err=>{
+
+                });
+            }
+        },
         filters: {},
         computed: {},
         watch: {}
