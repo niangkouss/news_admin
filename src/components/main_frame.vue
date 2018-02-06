@@ -52,8 +52,12 @@
                 </div>
             </sider-bar>
         </div>
-        <div class="content-wrapper">
-            <router-view></router-view>
+        <div class="content-wrapper" :style="{left:shrink?'60px':'200px'}">
+           <div class="page">
+              <Card>
+                  <router-view></router-view>
+              </Card>
+           </div>
         </div>
     </div>
 </template>

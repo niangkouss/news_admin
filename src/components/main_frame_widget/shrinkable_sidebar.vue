@@ -45,10 +45,10 @@
                 default:'dark'
             },
             activeName:{
-                type:String
+
             },
             openNames:{
-                type:Array
+
             },
             beforePush:{
                 type:Function

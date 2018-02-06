@@ -62,3 +62,15 @@
   transition: width .3s;
  /* background: #000; 可以底色固定,内容宽度变化,但是组件自带颜色*/
 }
+.content-wrapper{
+  position: absolute;
+  top: 62px;
+  right: 0;
+  bottom: 0;
+  overflow: hidden;
+  background-color: #F0F0F0;
+  transition: left .3s;
+  .page{
+    margin:10px;
+  }
+}

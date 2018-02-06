@@ -12,9 +12,9 @@
                     <span class="layout-text">{{itemTitle(item)}}</span>
                 </template>
                 <template v-for="child in item.children">
-                        <MenuItem :name="child.name" :key="child.name">
+                        <MenuItem :name="child.name" :key="'menuItem'+child.name">
                             <Icon :type="child.icon" :size="iconSize" :key="child.name"></Icon>
-                            <span class="layout-text" :key="child.name">{{itemTitle(item)}}</span>
+                            <span class="layout-text" :key="'aa'+child.name">{{itemTitle(item)}}</span>
                         </MenuItem>
                 </template>
             </Submenu>
@@ -41,7 +41,7 @@
         },
         methods:{
             itemTitle(item){ //为了国际化
-                console.log(item);
+                item.log
                 var title = item.title;
                 if(typeof title === 'object'){
                     /* return this.$t(title.i18n);*/
