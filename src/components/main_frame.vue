@@ -46,7 +46,7 @@
                 :active-name="activeNames"
                 :open-names="openNames"
             >
-                <div slot="top" class="logo-con" style="width: 50px;background-color: #fff;margin: 0 auto;border-radius: 50%;">
+                <div slot="top" class="logo-con" :style="{width:shrink?'30px':'50px',backgroundColor:'#fff',margin:'0 auto',borderRadius:'50%'}">
                     <Icon v-show="shrink" type="coffee":size="30"></Icon>
                     <Icon v-show="!shrink" type="social-snapchat-outline" :size="50"></Icon>
                 </div>
