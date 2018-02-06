@@ -36,7 +36,22 @@
                 </div>
             </div>
         </div>
-        <div class="siderbar"></div>
+        <div class="siderbar" :style="{width:shrink?'60px':'200px',overflow:shrink?'visible':'auto'}">
+            <sider-bar
+                :shrink="shrink"
+                @on-change="handleSubmenuChange"
+                :menu-list="app.menuList"
+                :theme="app.menuTheme"
+                :before-push="beforePush"
+                :active-name="activeNames"
+                :open-names="openNames"
+            >
+                <div slot="top" class="logo-con" style="width: 50px;background-color: #fff;margin: 0 auto;border-radius: 50%;">
+                    <Icon v-show="shrink" type="coffee":size="30"></Icon>
+                    <Icon v-show="!shrink" type="social-snapchat-outline" :size="50"></Icon>
+                </div>
+            </sider-bar>
+        </div>
         <div class="content-wrapper">
             <router-view></router-view>
         </div>
@@ -47,26 +62,32 @@
     import breadcrumbNav from "./main_frame_widget/breadcrumbNav.vue"
     import fullScreen from './main_frame_widget/full_screen.vue';
     import msgTips from './main_frame_widget/messageTips.vue'
+    import siderBar from './main_frame_widget/shrinkable_sidebar.vue'
     export default {
         components: {
             breadcrumbNav,
             fullScreen,
-            msgTips
+            msgTips,
+            siderBar
         },
         props: [],
         data() {
             return {
                 shrink:false,
-                isFullScreen:false
+                isFullScreen:false,
+                activeNames:'',
+                openNames:''
             }
         },
         beforeCreate() {
         },
         created() {
+            this.init();
         },
         beforeMount() {
         },
         mounted() {
+
         },
         beforeUpdate() {
         },
@@ -84,13 +105,26 @@
             toggleShrink(){
                 this.shrink = !this.shrink;
             },
-            handleFullScreen(isFullScreen){
+            handleFullScreen(isFullScreen) {
 
+            },
+            setMenuList(){
+                this.$store.commit("setMenuList",{idstr:this.user.menuId,
+                    menus:this.app.routers[0].children});
+            },
+            init(){
+                this.setMenuList();
+            },
+            handleSubmenuChange(){
+
+            },
+            beforePush(name){
+                return true;
             }
         },
         filters: {},
         computed: {
-            ...mapState(['user'])
+            ...mapState(['user','app'])
         },
         watch: {}
     }

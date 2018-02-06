@@ -81,5 +81,6 @@
         padding:12px 0;
         text-align: center;
         cursor: pointer;
+        margin-right: 5px;
     }
 </style>

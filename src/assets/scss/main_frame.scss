@@ -35,6 +35,9 @@
         height: 60px;
         line-height: 60px;
         margin:0 10px;
+        a{
+          margin: 0 5px;
+        }
       }
       .user-menu{
         float: right;
@@ -49,4 +52,13 @@
       }
     }
   }
+}
+.siderbar{
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  z-index: 22;
+  transition: width .3s;
+ /* background: #000; 可以底色固定,内容宽度变化,但是组件自带颜色*/
 }
