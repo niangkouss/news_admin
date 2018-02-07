@@ -16,5 +16,5 @@
 4. 删除新闻 
 
 ## pics
- ![image](https://github.com/niangkouss/pics/newsadminopen.png)
- ![image](https://github.com/niangkouss/pics/newsadminclose.png)
+ ![image](https://github.com/niangkouss/pics/raw/master//newsadminopen.png)
+ ![image](https://github.com/niangkouss/pics/raw/master//newsadminclose.png)
