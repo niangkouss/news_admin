@@ -1,8 +1,8 @@
 # vue_news_admin
+一个demo,新闻系统的增删改查
 
-test
-
-## 功能 
+## 用法
+把server 文件夹下的放入阿帕奇环境即可,前端用的是iview, npm run dev运行即可
 ### 栏目/分类的功能
 1. 新建栏目(分类) 
 2. 查看所有栏目 
@@ -15,20 +15,6 @@ test
 3. 更新新闻
 4. 删除新闻 
 
-## Build Setup
-
-``` bash
-# install dependencies
-npm install
-
-# serve with hot reload at localhost:8080
-npm run dev
-
-# build for production with minification
-npm run build
-
-# build for production and view the bundle analyzer report
-npm run build --report
-```
-
-For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+## pics
+ ![image](https://github.com/niangkouss/pics/newsadminopen.png)
+ ![image](https://github.com/niangkouss/pics/newsadminclose.png)

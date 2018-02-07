@@ -4,9 +4,9 @@
             <Col span="10">
             <Form :label-width="100">
                 <h2 class="margin-bottom-20">修改新闻</h2>
-               <!-- <FormItem label="要修改的栏目">
+             <!--   <FormItem label="要修改的栏目">
                     <Select v-model="modifyCat">
-                        <Option v-for="item in catList" :value="item.name" :key="item.catId">{{item.catName}}</Option>
+                        <Option v-for="item in catList" :value="item.catid" :key="item.catid">{{item.catName}}
                     </Select>
                 </FormItem>-->
                 <FormItem label="新闻名称">
@@ -61,7 +61,9 @@
         },
         destroyed() {
         },
-        methods: {},
+        methods: {
+
+        },
         filters: {},
         computed: {},
         watch: {}

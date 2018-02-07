@@ -9,14 +9,14 @@
         props: [],
         data() {
             return {
-                catCol:[
+                catCol:[ /*iview返回数组无需和elemo一样要按顺序*/
                     {
                         title:'栏目名称',
-                        key:'catName'
+                        key:'catname'
                     },
                     {
                         title:'栏目id',
-                        key:'catId'
+                        key:'catid'
                     },
                     {
                         title:'栏目描述',
@@ -24,42 +24,21 @@
                     },
                     {
                         title:'栏目建立时间',
-                        key:'catStarttime'
+                        key:'inserttime'
                     },
                     {
                         title:'栏目最后更新时间',
-                        key:'catEndtime'
+                        key:'updatetime'
                     },
 
                 ],
-                catData:[
-                    {
-                        catName:'栏目1',
-                        catId:'1',
-                        catDesc:'这个是栏目1',
-                        catStarttime:'2016-10-01',
-                        catEndtime:'2016-10-01',
-                    },
-                    {
-                        catName:'栏目1',
-                        catId:'1',
-                        catDesc:'这个是栏目1',
-                        catStarttime:'2016-10-01',
-                        catEndtime:'2016-10-01',
-                    },
-                    {
-                        catName:'栏目1',
-                        catId:'1',
-                        catDesc:'这个是栏目1',
-                        catStarttime:'2016-10-01',
-                        catEndtime:'2016-10-01',
-                    }
-                ]
+                catData:[]
             }
         },
         beforeCreate() {
         },
         created() {
+           this.getLists();
         },
         beforeMount() {
         },
@@ -77,7 +56,18 @@
         },
         destroyed() {
         },
-        methods: {},
+        methods: {
+            getLists(){
+                this.apidata('http://newsadmin.com/catLists.php',{},re=>{
+                    let result  = re.lists;
+                    if(result){
+                        this.catData = result;
+                    }
+                },err=>{
+
+                });
+            }
+        },
         filters: {},
         computed: {},
         watch: {}

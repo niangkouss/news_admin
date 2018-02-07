@@ -12,61 +12,39 @@
                 catCol:[
                     {
                         title:'新闻名称',
-                        key:'newsName'
+                        key:'title'
                     },
                     {
                         title:'新闻分类',
-                        key:'newsCat'
+                        key:'id'
                     },
                     {
                         title:'新闻作者',
-                        key:'newsAuthor'
+                        key:'author'
                     },
                     {
                         title:'新闻简介',
-                        key:'newsDesc'
+                        key:'digest'
                     },
                     {
                         title:'新闻发表时间',
-                        key:'newsInsertTime'
+                        key:'inserttime'
                     },
                     {
                         title:'新闻最近更新时间',
-                        key:'newsUpdateTime'
+                        key:'updatetime'
                     }
 
                 ],
                 catData:[
-                    {
-                        newsName:'这个是新闻名',
-                        newsCat:'1',
-                        newsAuthor:'这个是作者',
-                        newsDesc:'这个是简介',
-                        newsInsertTime:'2016-10-01',
-                        newsUpdateTime:'2016-10-01',
-                    },
-                    {
-                        newsName:'这个是新闻名',
-                        newsCat:'1',
-                        newsAuthor:'这个是作者',
-                        newsDesc:'这个是简介',
-                        newsInsertTime:'2016-10-01',
-                        newsUpdateTime:'2016-10-01',
-                    },
-                    {
-                        newsName:'这个是新闻名',
-                        newsCat:'1',
-                        newsAuthor:'这个是作者',
-                        newsDesc:'这个是简介',
-                        newsInsertTime:'2016-10-01',
-                        newsUpdateTime:'2016-10-01',
-                    }
+
                 ]
             }
         },
         beforeCreate() {
         },
         created() {
+            this.getLists();
         },
         beforeMount() {
         },
@@ -84,7 +62,18 @@
         },
         destroyed() {
         },
-        methods: {},
+        methods: {
+            getLists(){
+                this.apidata('http://newsadmin.com/newsLists.php',{},re=>{
+                    let result  = re.lists;
+                    if(result){
+                        this.catData = result;
+                    }
+                },err=>{
+
+                });
+            }
+        },
         filters: {},
         computed: {},
         watch: {}

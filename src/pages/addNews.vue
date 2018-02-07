@@ -9,7 +9,8 @@
                 </FormItem>
                 <FormItem label="新闻分类">
                     <Select v-model="formItem.id">
-                        <Option v-for="item in catList" :value="item.catName" :key="item.catId">{{item.catName}}</Option>
+                        <Option v-for="item in catList" :value="item.catid" :key="item.catid">{{item.catName}}
+                        </Option>
                     </Select>
                 </FormItem>
                 <FormItem label="新闻简介">
@@ -22,7 +23,7 @@
                     <Input v-model="formItem.catAuthor" placeholder="请输入新闻的作者" type="textarea"/>
                 </FormItem>
                 <FormItem>
-                    <Button type="primary">提交</Button>
+                    <Button type="primary" @click="submit">提交</Button>
                 </FormItem>
             </Form>
             </Col>
@@ -38,40 +39,18 @@
             return {
                 formItem:{
                     catName:'',
-                    catID:'',
                     catDesc:'',
                     id:'',
                     catContent:'',
                     catAuthor:'',
                 },
-                catList:[
-                    {
-                        catName:'栏目1',
-                        catId:'1',
-                        catDesc:'这个是栏目1',
-                        catStarttime:'2016-10-01',
-                        catEndtime:'2016-10-01',
-                    },
-                    {
-                        catName:'栏目1',
-                        catId:'2',
-                        catDesc:'这个是栏目1',
-                        catStarttime:'2016-10-01',
-                        catEndtime:'2016-10-01',
-                    },
-                    {
-                        catName:'栏目1',
-                        catId:'3',
-                        catDesc:'这个是栏目1',
-                        catStarttime:'2016-10-01',
-                        catEndtime:'2016-10-01',
-                    },
-                ]
+                catList:[]
             }
         },
         beforeCreate() {
         },
         created() {
+            this.getCat();
         },
         beforeMount() {
         },
@@ -89,7 +68,33 @@
         },
         destroyed() {
         },
-        methods: {},
+        methods: {
+            getCat() {
+                this.apidata('http://newsadmin.com/catLists.php', {
+                    'tag': 1
+                }, re => {
+                    let result = re.lists;
+                    if (result) {
+                        this.catList = result;
+                    } else {
+                        this.$Message.error('获取栏目列表失败');
+                    }
+                }, err => {
+
+                });
+            },
+            submit(){
+                this.apidata('http://newsadmin.com/addNews.php',this.formItem,
+                    re=>{
+                        if(re.msg ==1){
+                            this.$Message.success('添加新闻成功');
+                        }
+                    },
+                    err=>{
+
+                    });
+            }
+        },
         filters: {},
         computed: {},
         watch: {}
