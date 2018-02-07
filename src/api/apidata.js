@@ -3,9 +3,9 @@ export function getRemote(url,postData,okFun,errFun) {
         type:"POST",
         url:url,
         cache:false,
-        dataType:'json',
+        dataType:'JSON',
         data:postData,
-        success:function (data,textStatus) {
+        success:function (data) {
             if(data && data.ret ==1){
                 okFun(data);
             }

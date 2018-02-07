@@ -57,9 +57,11 @@
         },
         methods: {
             submit(){
-                this.apidata('http://newsadmin.com/addCat.php',this.formItem,
+              this.apidata('http://newsadmin.com/addCat.php',this.formItem,
                 re=>{
-
+                    if(re.msg ==1){
+                        this.$Message.success('添加分类成功');
+                    }
                 },
                 err=>{
 
