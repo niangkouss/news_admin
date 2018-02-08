@@ -1,7 +1,7 @@
 <?php
 //error_reporting(E_ALL & ~E_NOTICE);
 //开发过程中lotice错误也报出来,但是不论什么错误都会返回ajax,所以只能返回我们要的数据,开发过程中都要报错来,但是正式服务器不能让它出来
-header("Access-Control-Allow-Origin:*");
+//header("Access-Control-Allow-Origin:*");
 $dbms="mysql";
 $host='localhost';
 $dbName='test';
