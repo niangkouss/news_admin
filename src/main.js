@@ -15,6 +15,14 @@ Vue.prototype.apidata = getRemote;
 
 Vue.config.productionTip = false;
 
+/*UEditor*/
+import "../static/utf8-php/ueditor.config"
+import "../static/utf8-php/ueditor.all"
+import "../static/utf8-php/lang/zh-cn/zh-cn"
+import "../static/utf8-php/ueditor.parse.min"
+/*UEditor*/
+
+
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
